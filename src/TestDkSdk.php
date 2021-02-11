@@ -8,12 +8,12 @@ class TestDkSdk
     private const PRODUCTION_BASE_URL = 'localhost';
 
     private $baseUrl = self::PRODUCTION_BASE_URL;
-    private $apiVersion = V1;
+    private $apiVersion = COLLPAY_V1;
     private $publicKey;
 
-    public function __construct($publicKey, $envType, $apiVersion) {
+    public function __construct($publicKey, $envType = COLLPAY_ENV_PRODUCTION, $apiVersion = COLLPAY_V1) {
         $this->publicKey = $publicKey;
-        if($envType == ENV_SANDBOX) $this->baseUrl = self::SANDBOX_BASE_URL;
+        if($envType == COLLPAY_ENV_SANDBOX) $this->baseUrl = self::SANDBOX_BASE_URL;
         if(!empty($apiVersion)) $this->apiVersion = $apiVersion;
     }
 
