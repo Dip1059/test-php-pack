@@ -1,8 +1,8 @@
 {
-    "name": "test/test-dk-sdk",
+    "name": "dk/test-dk-sdk",
     "description": "",
     "keywords": [
-        "test",
+        "dk",
         "test-dk-sdk"
     ],
     "homepage": "https://github.com/Dip1059/test-php-pack",
