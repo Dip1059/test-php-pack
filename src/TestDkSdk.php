@@ -38,7 +38,7 @@ class TestDkSdk
           ),
         ));
 
-        $response = curl_exec($curl);
+        $response = json_decode(curl_exec($curl));
 
         curl_close($curl);
 
