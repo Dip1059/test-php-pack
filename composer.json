@@ -1,0 +1,42 @@
+{
+    "name": "test/test-dk-sdk",
+    "description": "",
+    "keywords": [
+        "test",
+        "test-dk-sdk"
+    ],
+    "homepage": "https://github.com/Dip1059/test-php-pack",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "dd",
+            "email": "xxx@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Test\\TestDkSdk\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Test\\TestDkSdk\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
