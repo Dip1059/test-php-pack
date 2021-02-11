@@ -7,7 +7,7 @@ class TestDkSdk
     private const SANDBOX_BASE_URL = 'https://collpay-dev.dev.squaredbyte.com';
     private const PRODUCTION_BASE_URL = 'localhost';
 
-    private $baseUrl = self::SANDBOX_BASE_URL;
+    private $baseUrl = self::PRODUCTION_BASE_URL;
     private $apiVersion = V1;
     private $publicKey;
 
