@@ -24,7 +24,8 @@
     "autoload": {
         "psr-4": {
             "Test\\TestDkSdk\\": "src"
-        }
+        },
+        "files": ["src/constants.php"]
     },
     "autoload-dev": {
         "psr-4": {

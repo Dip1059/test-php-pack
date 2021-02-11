@@ -4,41 +4,24 @@ namespace Test\TestDkSdk;
 
 class TestDkSdk
 {
+    private const SANDBOX_BASE_URL = 'https://collpay-dev.dev.squaredbyte.com';
+    private const PRODUCTION_BASE_URL = 'localhost';
 
+    private $baseUrl = self::SANDBOX_BASE_URL;
+    private $apiVersion = V1;
+    private $publicKey;
 
-    /**
-     * CollPay Payment Gateway Base URL.
-     *
-     * @var string
-     */
-    public const BASE_URL = 'https://collpay-dev.dev.squaredbyte.com/api';
+    public function __construct($publicKey, $envType, $apiVersion) {
+        $this->publicKey = $publicKey;
+        if($envType == ENV_SANDBOX) $this->baseUrl = self::SANDBOX_BASE_URL;
+        if(!empty($apiVersion)) $this->apiVersion = $apiVersion;
+    }
 
-    /**
-     * CollPay Payment Gateway API version.
-     *
-     * @var string
-     */
-    public const VERSION = 'v1';
-
-    /**
-     * CollPay Payment Gateway API Key.
-     *
-     * @var string
-     */
-    public const API_KEY = '0810545410c0dd7822cdd7c7caa336b2';
-
-    /**
-     * POST Exchange Rate API
-     * 
-     * @param mixed $request
-     * 
-     * @return [type]
-     */
-    public function getExchangeRate($from, $to) {           
+    public function getExchangeRate($from, $to) {
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-          CURLOPT_URL => Self::BASE_URL."/".Self::VERSION."/exchange-rate",
+          CURLOPT_URL => $this->baseUrl."/api/".$this->apiVersion."/exchange-rate",
           CURLOPT_RETURNTRANSFER => true,
           CURLOPT_ENCODING => "",
           CURLOPT_MAXREDIRS => 10,
@@ -51,20 +34,14 @@ class TestDkSdk
             "Content-Type: application/x-www-form-urlencoded",
             "Accept: application/json",
             "Accept-Language: en",
-            "x-auth: ".Self::API_KEY,
+            "x-auth: ".$this->publicKey,
           ),
         ));
-        
-        $response = curl_exec($curl);
-        
-        curl_close($curl);
-        
-        return $response;
-    }
-    
 
-    public static function test()
-    {
-        return 'hello test';
+        $response = curl_exec($curl);
+
+        curl_close($curl);
+
+        return $response;
     }
 }
