@@ -49,7 +49,7 @@ class TestDkSdk
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => $method,
             CURLOPT_POSTFIELDS => $data,
-            CURLOPT_HTTPHEADER => array(
+            CURLOPT_HTTPHEADER => array (
                 "Content-Type: application/x-www-form-urlencoded",
                 "Accept: application/json",
                 "Accept-Language: en",
