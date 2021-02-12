@@ -19,8 +19,16 @@ class TestDkSdk
 
     public function getExchangeRate($from, $to) {
         $url = $this->baseUrl.'/api/'.$this->apiVersion.'/exchange-rate';
-        $data = "from=$from&to=$to";
-        return $this->callCurl($url, 'POST', $data);
+        $data = [
+            'from'=> $from,
+            'to'=> $to
+        ];
+        return $this->callCurl($url, 'POST', http_build_query($data));
+    }
+
+    public function createTransaction($data) {
+        $url = $this->baseUrl.'/api/'.$this->apiVersion.'/transactions';
+        return $this->callCurl($url, 'POST', http_build_query($data));
     }
 
     public function getTransaction($transactionId) {
