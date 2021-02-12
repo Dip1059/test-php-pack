@@ -18,7 +18,7 @@ class TestDkSdk
     }
 
     public function getExchangeRate($from, $to) {
-        $curl = curl_init();
+        /*$curl = curl_init();
 
         curl_setopt_array($curl, array(
           CURLOPT_URL => $this->baseUrl."/api/".$this->apiVersion."/exchange-rate",
@@ -42,34 +42,19 @@ class TestDkSdk
 
         curl_close($curl);
 
-        return $response;
+        return $response;*/
+
+        $url = $this->baseUrl.'/api/'.$this->apiVersion.'/exchange-rate';
+        $data = [
+            'from' => $from,
+            'to'=> $to
+        ];
+        return $this->callCurl($url, 'POST', $data);
     }
 
     public function getTransaction($transactionId) {
-        /*$curl = curl_init();
-
-        curl_setopt_array($curl, array(
-            CURLOPT_URL => $this->baseUrl.'/api/'.$this->apiVersion.'/transactions/'.$transactionId,
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_ENCODING => "",
-            CURLOPT_MAXREDIRS => 10,
-            CURLOPT_TIMEOUT => 0,
-            CURLOPT_FOLLOWLOCATION => true,
-            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-            CURLOPT_CUSTOMREQUEST => "GET",
-            CURLOPT_HTTPHEADER => array(
-                "Content-Type: application/x-www-form-urlencoded",
-                "Accept: application/json",
-                "Accept-Language: en",
-                "x-auth: ".$this->publicKey,
-            ),
-        ));
-
-        $response = json_decode(curl_exec($curl));
-
-        curl_close($curl);*/
         $url = $this->baseUrl.'/api/'.$this->apiVersion.'/transactions/'.$transactionId;
-        return $this->callCurl($url, 'get');
+        return $this->callCurl($url, 'GET');
     }
 
     private function callCurl($url, $method, $data = []) {
