@@ -3,7 +3,7 @@
 namespace CollPay\CollpayPhpSdk\Tests;
 
 use PHPUnit\Framework\TestCase;
-use CollPay\CollpayPhpSdk\CollPay;
+use CollPay\CollpayPhpSdk\Collpay;
 
 class CollpayTest extends TestCase
 {
