@@ -1,17 +1,17 @@
 <?php
 
-namespace Test\TestDkSdk\Tests;
+namespace CollPay\CollpayPhpSdk\Tests;
 
 use PHPUnit\Framework\TestCase;
-use Test\TestDkSdk\TestDkSdk;
+use CollPay\CollpayPhpSdk\CollPay;
 
-class ExampleTest extends TestCase
+class CollpayTest extends TestCase
 {
     private $collpay;
     public function setUp()
     {
         parent::setUp();
-        $this->collpay = new TestDkSdk('xxxxxxxxxxxxxx', COLLPAY_ENV_SANDBOX);
+        $this->collpay = new Collpay('xxxxxxxxxxxxxx', COLLPAY_ENV_SANDBOX);
     }
 
     public function test_env_production_will_be_1() {

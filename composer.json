@@ -25,13 +25,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Test\\TestDkSdk\\": "src"
+            "CollPay\\CollpayPhpSdk\\": "src"
         },
         "files": ["src/constants.php"]
     },
     "autoload-dev": {
         "psr-4": {
-            "Test\\TestDkSdk\\Tests\\": "tests"
+            "CollPay\\CollpayPhpSdk\\Tests\\": "tests"
         }
     },
     "scripts": {

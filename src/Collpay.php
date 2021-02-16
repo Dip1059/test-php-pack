@@ -1,8 +1,9 @@
 <?php
 
-namespace Test\TestDkSdk;
+namespace CollPay\CollpayPhpSdk;
 
-class TestDkSdk
+
+class Collpay
 {
     private const SANDBOX_BASE_URL = 'https://collpay-dev.dev.squaredbyte.com';
     private const PRODUCTION_BASE_URL = 'localhost';
@@ -62,3 +63,4 @@ class TestDkSdk
         return $response;
     }
 }
+
